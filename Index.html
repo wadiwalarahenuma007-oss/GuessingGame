@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Guess The Number</h1>
+
+        <select id="difficulty" class="input-field">
+            <option value="easy">Easy (1-20)</option>
+            <option value="medium">Medium (1-50)</option>
+            <option value="hard">Hard (1-100)</option>
+        </select>
+
+        <p id="info" class="info"></p>
+
+        <input type="number" id="guessInput" class="input-field" placeholder="Enter your guess">
+
+        <div class="btns">
+            <button class="btn guess-btn" onclick="checkGuess()">Guess</button>
+            <button class="btn restart-btn" onclick="restartGame()">Restart</button>
+        </div>
+
+        <p id="result" class="result"></p>
+
+        <p class="score-text"> Score: <span id="score">0</span></p>
+    </div>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
