@@ -6,6 +6,7 @@ document.getElementById("score").innerText = score;
 document.getElementById("difficulty").addEventListener("change", startGame);
 
 function startGame() {
+
     let difficulty = document.getElementById("difficulty").value;
 
     if (difficulty === "easy") {
@@ -31,6 +32,7 @@ function startGame() {
 }
 
 function checkGuess() {
+
     let guess = Number(document.getElementById("guessInput").value);
     let result = document.getElementById("result");
 
@@ -40,7 +42,7 @@ function checkGuess() {
     }
 
     if (attempts <= 0) {
-        result.innerText = "Game Over! Click Restart";
+        result.innerText = "Game Over! Restart";
         return;
     }
 
@@ -51,7 +53,7 @@ function checkGuess() {
         localStorage.setItem("score", score);
         document.getElementById("score").innerText = score;
 
-        result.innerText = "You Win!";
+        result.innerText = "🎉 You Win!";
     }
     else if (guess > number) {
         result.innerText = `Too High! Attempts left: ${attempts}`;
@@ -61,7 +63,7 @@ function checkGuess() {
     }
 
     if (attempts === 0 && guess !== number) {
-        result.innerText = `You Lost! Number was ${number}`;
+        result.innerText = `❌ You Lost! Number was ${number}`;
     }
 
     document.getElementById("guessInput").value = "";
@@ -70,4 +72,5 @@ function checkGuess() {
 function restartGame() {
     startGame();
 }
+
 startGame();
