@@ -1,5 +1,6 @@
 let number, attempts, maxRange;
-let score = localStorage.getItem("score") || 0;
+
+let score = Number(localStorage.getItem("score")) || 0;
 
 document.getElementById("score").innerText = score;
 
@@ -36,8 +37,8 @@ function checkGuess() {
     let guess = Number(document.getElementById("guessInput").value);
     let result = document.getElementById("result");
 
-    if (!guess) {
-        result.innerText = "Enter a number!";
+    if (guess === 0 || isNaN(guess)) {
+        result.innerText = "Enter a valid number!";
         return;
     }
 
@@ -49,8 +50,11 @@ function checkGuess() {
     attempts--;
 
     if (guess === number) {
+
         score++;
+
         localStorage.setItem("score", score);
+
         document.getElementById("score").innerText = score;
 
         result.innerText = "🎉 You Win!";
@@ -63,7 +67,7 @@ function checkGuess() {
     }
 
     if (attempts === 0 && guess !== number) {
-        result.innerText = `❌ You Lost! Number was ${number}`;
+        result.innerText = `You Lost! Number was ${number}`;
     }
 
     document.getElementById("guessInput").value = "";
